@@ -3,14 +3,14 @@ import { ISchedule } from "./ISchedule";
 import { IStudent } from "./IStudent";
 
 export class Course {
-    private name: string;
-    private description: string;
-    private materials: string[];
-    private instructorDetails: IInstructorDetails;
-    private schedule: ISchedule | null;
-    private students: IStudent[] | null;
-    private startDate: Date | null;
-    private endDate: Date | null;
+    protected name: string;
+    protected description: string;
+    protected materials: string[];
+    protected instructorDetails: IInstructorDetails;
+    protected schedule: ISchedule | null;
+    protected students: IStudent[] | null;
+    protected startDate: Date | null;
+    protected endDate: Date | null;
 
     constructor(
         name: string,
@@ -30,6 +30,10 @@ export class Course {
         this.students = students || []; // Lista vacía por defecto
         this.startDate = startDate || new Date(); // Valor por defecto
         this.endDate = endDate || new Date(); // Valor por defecto
+    }
+
+    public addExtraBehaviour(cadena:string):void{
+        //funcionalidad desde el exterior
     }
 
     public displayCourseInfo(): void {

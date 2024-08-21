@@ -1,14 +1,16 @@
-
-import { Course } from './Course';
 import { CourseBuilder } from './CourseBuilder';
 
 const basicCourse = new CourseBuilder()
 .setName('Introducción a TypeScript')
 .setInstructor({ name: 'Alice', email: 'alice@example.com', experience: 5 })
+.setExtraMethod((message: string)=>{console.log('Se agregó funcionalidad extra '+ message)})
 .buildCourse();
 
 console.log('Curso 1:');
 basicCourse.displayCourseInfo();
+console.log('*****************************************');
+basicCourse.addExtraBehaviour('AVISO: este curso es sabatino');
+//basicCourse.printDetailedSummary();
 console.log('*****************************************');
 
 const advancedCourse = new CourseBuilder()
@@ -29,4 +31,6 @@ const advancedCourse = new CourseBuilder()
 
 console.log('Curso 2:');
 advancedCourse.displayCourseInfo();
+console.log('*****************************************');
+//advancedCourse.printDetailedSummary();
 console.log('*****************************************');

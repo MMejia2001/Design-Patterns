@@ -2,6 +2,7 @@ import { IInstructorDetails } from "./IInstructorDetails";
 import { ISchedule } from "./ISchedule";
 import { IStudent } from "./IStudent";
 import { Course } from "./Course";
+import { ExtendedCourse } from "./CourseExtend";
 
 export class CourseBuilder {
     private name: string = '';
@@ -12,6 +13,7 @@ export class CourseBuilder {
     private students: IStudent[] | null = null;
     private startDate: Date | null = null;
     private endDate: Date | null = null;
+    private custumMethod: (cadena: string) => void = (cadena:string) => {}
 
     public setName(name:string): CourseBuilder{
         this.name = name;
@@ -37,7 +39,7 @@ export class CourseBuilder {
     //     this.schedule = schedule;
     //     return this;
     // }
-    
+
     public setStudent(student: IStudent[]):  CourseBuilder{
         this.students = student;
         return this;
@@ -50,8 +52,12 @@ export class CourseBuilder {
         this.endDate = endDate;
         return this;
     }
-    
 
+    public setExtraMethod(method:(cadena:string)=>void): CourseBuilder {
+        this.custumMethod = method
+        return this;
+    }
+    
     public buildCourse(): Course {
         const course = new Course(
             this.name,
@@ -63,6 +69,8 @@ export class CourseBuilder {
             this.startDate,
             this.endDate
         );
+        course.addExtraBehaviour = this.custumMethod;
         return course;
     }
+
 }
