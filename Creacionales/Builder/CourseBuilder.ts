@@ -2,7 +2,6 @@ import { IInstructorDetails } from "./IInstructorDetails";
 import { ISchedule } from "./ISchedule";
 import { IStudent } from "./IStudent";
 import { Course } from "./Course";
-import { ExtendedCourse } from "./CourseExtend";
 
 export class CourseBuilder {
     private name: string = '';

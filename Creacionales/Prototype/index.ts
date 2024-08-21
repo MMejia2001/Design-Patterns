@@ -57,3 +57,9 @@ console.log('Imprimiendo clon para Apis:');
 console.log('*****************************************');
 console.log(cursoAdvancedApis.displayCourseInfo())
 
+//La propiedad name ahora es privada y no es posible reasignarle un valor
+
+//advancedCourse.name = 'Bases de Datos 2'
+
+
+
