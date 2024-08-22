@@ -48,6 +48,7 @@ const cursoAdvancedDataBase = new CourseBuilder()
 .setInstructor({ name: 'Alice', email: 'alice@example.com', experience: 5 })
 .setSchedule({days:['Lunes'],time: 'DE 10:00 am A 12:00 pm'})
 .setMaterials(['Cuenta Azure','Instalador de SQL Server', 'Documentacion Caso de Estudio'])
+.setStartDate(new Date(2024, 7, 1))
 .buildCourse()
 
 console.log('Imprimiendo clon para BD:');
